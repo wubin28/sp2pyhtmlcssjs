@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+HTML数据可视化看板 - HTML学习示例
+
+学习要点：
+1. HTML5文档结构
+2. 语义化标签的使用
+3. 外部资源引入（CSS、JavaScript、CDN）
+4. 元素的id和class属性
+-->
+<html lang="zh-CN">
+<head>
+    <!-- 字符编码：支持中文显示 -->
+    <meta charset="UTF-8">
+
+    <!-- 视口设置：确保移动设备正确显示 -->
+    <!-- width=device-width 让页面宽度等于设备宽度 -->
+    <!-- initial-scale=1.0 初始缩放比例为1:1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 页面标题：显示在浏览器标签页 -->
+    <title>AI Agent性能数据看板</title>
+
+    <!-- 引入外部CSS样式文件 -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 引入Chart.js图表库（通过CDN） -->
+    <!-- CDN = Content Delivery Network，内容分发网络，可快速加载常用库 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- header标签：页面头部区域 -->
+    <header>
+        <!-- h1标签：一级标题，页面最重要的标题 -->
+        <h1>🤖 AI Agent性能数据分析看板</h1>
+        <!-- p标签：段落文本 -->
+        <p class="subtitle">基于80条性能数据的可视化分析</p>
+    </header>
+
+    <!-- main标签：页面主要内容区域 -->
+    <main>
+        <!-- section标签：页面的一个独立章节 -->
+        <!-- class属性：为元素指定CSS类名，用于样式控制 -->
+        <section class="summary-section">
+            <!-- h2标签：二级标题 -->
+            <h2>📊 数据概览</h2>
+
+            <!-- div标签：通用容器，用于分组和布局 -->
+            <!-- id属性：元素的唯一标识符，JavaScript可以通过id操作元素 -->
+            <div class="stats-container">
+                <!-- 统计卡片：显示总记录数 -->
+                <div class="stat-card">
+                    <div class="stat-number" id="total-records">-</div>
+                    <div class="stat-label">总数据记录</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number" id="multimodal-count">-</div>
+                    <div class="stat-label">多模态能力数</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 问题1：Top 3 Agent Types -->
+        <section class="chart-section">
+            <h2>📈 问题1：Top 3 Agent Types (Multimodal比例)</h2>
+            <p class="description">哪些AI Agent类型具有最高的多模态能力比例？</p>
+
+            <!-- 图表容器 -->
+            <div class="chart-container">
+                <!-- canvas标签：画布，用于绘制图表 -->
+                <!-- Chart.js会在这个canvas上绘制图表 -->
+                <canvas id="chart-question1"></canvas>
+            </div>
+        </section>
+
+        <!-- 问题2：Top 3 Model Architectures -->
+        <section class="chart-section">
+            <h2>📈 问题2：Top 3 Model Architectures (Multimodal比例)</h2>
+            <p class="description">哪些模型架构具有最高的多模态能力比例？</p>
+
+            <div class="chart-container">
+                <canvas id="chart-question2"></canvas>
+            </div>
+        </section>
+
+        <!-- 问题3：Top 3 Task Categories -->
+        <section class="chart-section">
+            <h2>📈 问题3：Top 3 Task Categories (Bias中位数)</h2>
+            <p class="description">哪些任务类别具有最高的偏差检测分数中位数？</p>
+
+            <div class="chart-container">
+                <canvas id="chart-question3"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer标签：页面底部区域 -->
+    <footer>
+        <p>数据来源：agentic_ai_performance_dataset_20250622.xlsx</p>
+        <p>学习项目：Python + HTML + CSS + JavaScript</p>
+    </footer>
+
+    <!-- 引入外部JavaScript文件 -->
+    <!-- defer属性：延迟执行，等HTML加载完成后再运行JavaScript -->
+    <script src="script.js" defer></script>
+</body>
+</html>

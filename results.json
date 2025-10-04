@@ -1,0 +1,69 @@
+{
+  "total_records": 80,
+  "question1": {
+    "title": "Top 3 Agent Types by Multimodal Capability Ratio",
+    "data": [
+      {
+        "name": "Research Assistant",
+        "ratio": 0.6,
+        "multimodal_count": 3,
+        "total_count": 5
+      },
+      {
+        "name": "Document Processor",
+        "ratio": 0.3333333333333333,
+        "multimodal_count": 2,
+        "total_count": 6
+      },
+      {
+        "name": "Sales Assistant",
+        "ratio": 0.2857142857142857,
+        "multimodal_count": 2,
+        "total_count": 7
+      }
+    ]
+  },
+  "question2": {
+    "title": "Top 3 Model Architectures by Multimodal Capability Ratio",
+    "data": [
+      {
+        "name": "GPT-4o",
+        "ratio": 0.375,
+        "multimodal_count": 3,
+        "total_count": 8
+      },
+      {
+        "name": "CodeT5+",
+        "ratio": 0.3333333333333333,
+        "multimodal_count": 3,
+        "total_count": 9
+      },
+      {
+        "name": "Transformer-XL",
+        "ratio": 0.2,
+        "multimodal_count": 2,
+        "total_count": 10
+      }
+    ]
+  },
+  "question3": {
+    "title": "Top 3 Task Categories by Median Bias Detection Score",
+    "data": [
+      {
+        "name": "Communication",
+        "median_score": 0.8214,
+        "count": 5
+      },
+      {
+        "name": "Research & Summarization",
+        "median_score": 0.78535,
+        "count": 4
+      },
+      {
+        "name": "Decision Making",
+        "median_score": 0.7816,
+        "count": 5
+      }
+    ]
+  }
+}

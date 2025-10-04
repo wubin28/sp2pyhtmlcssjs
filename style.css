@@ -1,0 +1,206 @@
+/*
+CSS样式文件 - CSS学习示例
+
+学习要点：
+1. CSS选择器（元素、类、ID选择器）
+2. CSS变量（自定义属性）
+3. Flexbox布局
+4. 响应式设计（@media查询）
+5. 盒模型（margin、padding、border）
+*/
+
+/* ============================================================
+   CSS变量定义：定义可复用的颜色值
+   ============================================================ */
+:root {
+    /* 浅色主题配色 */
+    --primary-color: #4A90E2;        /* 主色：蓝色 */
+    --secondary-color: #7AB8F5;      /* 次要色：浅蓝 */
+    --success-color: #6BCF7E;        /* 成功色：绿色 */
+    --background-color: #F5F7FA;     /* 背景色：浅灰 */
+    --card-background: #FFFFFF;      /* 卡片背景：白色 */
+    --text-primary: #2C3E50;         /* 主文本：深灰 */
+    --text-secondary: #7F8C8D;       /* 次要文本：灰色 */
+    --border-color: #E0E6ED;         /* 边框色：浅灰 */
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);  /* 阴影效果 */
+}
+
+/* ============================================================
+   全局样式重置
+   ============================================================ */
+/* * 选择器：选中所有元素 */
+* {
+    margin: 0;           /* 清除默认外边距 */
+    padding: 0;          /* 清除默认内边距 */
+    box-sizing: border-box;  /* 盒模型：边框和内边距包含在宽度内 */
+}
+
+/* body元素样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background-color: var(--background-color);  /* 使用CSS变量 */
+    color: var(--text-primary);
+    line-height: 1.6;    /* 行高：1.6倍字体大小，增加可读性 */
+    padding: 20px;       /* 内边距：内容与边缘的距离 */
+}
+
+/* ============================================================
+   头部样式
+   ============================================================ */
+header {
+    text-align: center;  /* 文本居中对齐 */
+    margin-bottom: 40px; /* 下外边距：与下方元素的距离 */
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;    /* em单位：相对于父元素字体大小 */
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1em;
+}
+
+/* ============================================================
+   主内容区域
+   ============================================================ */
+main {
+    max-width: 1200px;   /* 最大宽度：限制内容不会过宽 */
+    margin: 0 auto;      /* 上下0，左右auto：水平居中 */
+}
+
+/* ============================================================
+   章节样式
+   ============================================================ */
+section {
+    background: var(--card-background);
+    border-radius: 12px; /* 圆角：让卡片边角圆润 */
+    padding: 30px;       /* 内边距：内容与边框的距离 */
+    margin-bottom: 30px; /* 底部外边距：与下一个section的距离 */
+    box-shadow: var(--shadow);  /* 阴影：增加立体感 */
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.description {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-style: italic;  /* 斜体 */
+}
+
+/* ============================================================
+   统计卡片容器 - Flexbox布局示例
+   ============================================================ */
+.stats-container {
+    display: flex;       /* 启用Flexbox布局 */
+    gap: 20px;          /* flex项目之间的间距 */
+    flex-wrap: wrap;    /* 允许换行 */
+    justify-content: center;  /* 主轴（横向）居中对齐 */
+}
+
+/* 单个统计卡片 */
+.stat-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 200px;   /* 最小宽度 */
+    flex: 1;            /* flex-grow: 1，允许扩展填充空间 */
+    max-width: 300px;   /* 最大宽度 */
+}
+
+.stat-number {
+    font-size: 3em;     /* 大号数字 */
+    font-weight: bold;  /* 粗体 */
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1.1em;
+    opacity: 0.9;       /* 透明度：0-1之间，1为完全不透明 */
+}
+
+/* ============================================================
+   图表容器
+   ============================================================ */
+.chart-container {
+    position: relative;  /* 相对定位：为Chart.js提供定位上下文 */
+    height: 400px;      /* 固定高度 */
+    margin-top: 20px;
+}
+
+/* canvas元素自动占满容器 */
+.chart-container canvas {
+    max-width: 100%;    /* 最大宽度不超过父容器 */
+}
+
+/* ============================================================
+   底部样式
+   ============================================================ */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ============================================================
+   响应式设计 - 移动端适配
+   ============================================================ */
+/* @media查询：当屏幕宽度小于768px时应用以下样式 */
+@media (max-width: 768px) {
+    /* 移动端：标题字体变小 */
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    /* 移动端：section内边距减小 */
+    section {
+        padding: 20px;
+    }
+
+    /* 移动端：统计卡片竖向排列 */
+    .stats-container {
+        flex-direction: column;  /* 主轴方向改为纵向 */
+    }
+
+    .stat-card {
+        max-width: 100%;  /* 移动端占满宽度 */
+    }
+
+    /* 移动端：图表高度调整 */
+    .chart-container {
+        height: 300px;
+    }
+}
+
+/* 超小屏幕（手机竖屏） */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .chart-container {
+        height: 250px;
+    }
+}
